@@ -41,6 +41,12 @@ namespace BusinessObject
 }
 
 ```
+ConnectionStrings
+```
+"ConnectionStrings": {
+  "MyStoreDB": "Data Source=(local);Database=Ass01_API;User Id=sa1;Password=123;TrustServerCertificate=true;Trusted_Connection=SSPI;Encrypt=false;"
+},
+```
 ## Vì sao cần DTO
 vì dto sẽ tiết kiệm dữ liệu khi nó là class chỉ lấy ra những thuộc tính cần thiết
 với API thì ta có Product class thì ta có ProductDTO, ProductCreateDTO, ProductUpdateDTO phục vụ cho mỗi mục đích khác nhau
