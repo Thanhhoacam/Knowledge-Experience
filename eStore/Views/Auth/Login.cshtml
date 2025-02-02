@@ -1,0 +1,50 @@
+﻿@model BusinessObject.models.Dto.LoginDTO.LoginRequestDTO
+
+<form method="post">
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Login</h1>
+        </div>
+        <div class="row text-center">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3 pb-2">
+                <input asp-for="Email" type="text" class="form-control" placeholder="Email..." />
+            </div>
+
+            <div class="col-6 offset-3 pb-2">
+                <div class="input-group">
+                <input asp-for="Password" type="password" id="password" class="form-control password border-end-0" placeholder="Password..." />
+                <span class="input-group-text">
+                        <i class="bi bi-eye-slash" id="togglePassword"
+                       style="cursor: pointer"></i>
+                </span>
+                </div>
+            </div>
+            <div class="col-6 offset-3 pb-2">
+                <button type="submit" class="form-control btn-success" value="Submit">Login</button>
+
+            </div>
+            <div class="col-1 offset-3 pb-2 text-center">
+                <a asp-controller="Auth" asp-action="GoogleLogin" class="form-control btn-success"><i class="bi bi-google"></i></a>
+
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+<script>
+    $("#togglePassword").click(function () {
+        let passwordField = $("#password");
+        let type = passwordField.attr("type");
+
+        // Đổi type input
+        passwordField.attr("type", type === "password" ? "text" : "password");
+
+        // Đổi icon
+        $(this).toggleClass("bi-eye bi-eye-slash");
+    });
+</script>

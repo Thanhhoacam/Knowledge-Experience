@@ -1,0 +1,96 @@
+﻿@model IEnumerable<BusinessObject.models.Dto.OrderDetailDTO.OrderDetailDTO>
+
+
+<form asp-action="Index">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Statistics</h1>
+        <hr />
+
+        <div class="row">
+
+            <div class="col-2">
+                <label class="control-label pt-2" style="font-size:20px;">Start Date</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input type="date" name="startDate" class="form-control" />
+            </div>
+
+             <div class="col-2">
+                <label class="control-label pt-2" style="font-size:20px;">End Date</label>
+            </div>
+            <div class="col-10 pb-3">
+                <input type="date" name="endDate" class="form-control" />
+            </div>
+
+
+            <div class="col-5 offset-2">
+                <a asp-action="Index" asp-controller="Home" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Statistic" class="btn btn-success form-control" />
+            </div>
+            
+
+
+        </div>
+    </div>
+</form>
+
+@if (ViewBag.NumberOrder != null)
+{
+	<div class="container p-4 border">
+		<div class="row pb-2">
+			<div class="col">
+				<h1 class="text-primary">Results</h1>
+			</div>
+			
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Number of Orders
+					</th>
+					<th>
+						Number of Products
+					</th>
+					<th>
+						Number of Members
+					</th>
+					<th>
+						Number of Categories
+					</th>
+					<th>
+						Revenue
+					</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				
+					<tr>
+						<td>
+							@ViewBag.NumberOrder
+						</td>
+						<td>
+							@ViewBag.NumberProduct
+						</td>
+						<td>
+							@ViewBag.NumberMember
+						</td>
+						<td>
+							@ViewBag.NumberCategory
+						</td>
+						<td>
+							@ViewBag.Revenue
+						</td>
+					</tr>
+				
+			</tbody>
+		</table>
+
+	</div>
+
+}

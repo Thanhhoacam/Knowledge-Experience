@@ -1,0 +1,91 @@
+﻿@model BusinessObject.models.Dto.ProductDto.ProductUpdateDTO
+
+<form asp-action="Edit">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Update Villa</h1>
+        <hr />
+
+        <input hidden asp-for="ProductId" />
+        <div class="row">
+            <div class="col-10">
+
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="col-2">
+                        <label asp-for="CategoryId" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryList"></select>
+
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="ProductName" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <input asp-for="ProductName" class="form-control" />
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Weight" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <textarea asp-for="Weight" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Weight" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="ImageUrl" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <input asp-for="ImageUrl" class="form-control" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="UnitPrice" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <input asp-for="UnitPrice" class="form-control" />
+                        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="UnitsInStock" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <input asp-for="UnitsInStock" class="form-control" />
+                        <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="col-5 offset-2">
+                        <a asp-action="IndexVilla" asp-controller="Villa" class="btn-primary btn form-control ">Back to List</a>
+                    </div>
+                    <div class="col-5">
+                        <input type="submit" value="Update" class="btn btn-success form-control" />
+                    </div>
+                </div>
+             </div>
+            <div class="col-2">
+                <img class="w-100" asp-append-version="true" src="@Model.ImageUrl" alt="" />
+                @* asp-append-version help in case image is static file in wwwroot, it ensure load latest img*@
+            </div>
+         </div>
+       
+       
+    </div>
+   
+
+</form>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

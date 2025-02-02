@@ -1,0 +1,72 @@
+﻿@model BusinessObject.Object.Order
+
+
+
+<form asp-action="Create">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Create Orders</h1>
+        <hr />
+
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="MemberId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                @* <input asp-for="CategoryId" class="form-control" /> *@
+                @* ViewBag.CategoryId = new SelectList(_context.Categories, "Id", "Name"); //code in controller*@
+                <select asp-for="MemberId" class="form-control" asp-items="ViewBag.MemberList"></select>
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="OrderDate" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+             <input type="date" asp-for="OrderDate" value="@DateTime.Now.ToString("YYYY-MM-DD")" class="form-control" />
+                <span asp-validation-for="OrderDate" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="RequiredDate" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input type="date" asp-for="RequiredDate" class="form-control" />
+                <span asp-validation-for="RequiredDate" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="ShippedDate" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input type="date" asp-for="ShippedDate" class="form-control" />
+                <span asp-validation-for="ShippedDate" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Freight" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Freight" class="form-control" />
+                <span asp-validation-for="Freight" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-5 offset-2">
+                <a asp-action="Index" asp-controller="Orders" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Create" class="btn btn-success form-control" />
+            </div>
+
+
+
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

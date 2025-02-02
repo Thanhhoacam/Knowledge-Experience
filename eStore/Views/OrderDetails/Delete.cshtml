@@ -1,0 +1,64 @@
+﻿@model BusinessObject.models.Dto.OrderDetailDTO.OrderDetailDTO
+
+
+<form asp-action="Delete">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Delete Order Details</h1>
+        <hr />
+
+        <input type="hidden" asp-for="OrderId" />
+        <input type="hidden" asp-for="ProductId" />
+        <div class="row">
+            <div class="col-2">
+                <label asp-for="OrderId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="OrderId" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Product.ProductName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Product.ProductName" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="UnitPrice" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="UnitPrice" disabled class="form-control" rows="5"></textarea>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Discount" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Discount" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="UnitPrice" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="UnitPrice" disabled class="form-control" />
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Quantity" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Quantity" disabled class="form-control" />
+            </div>
+
+
+            <div class="col-5 offset-2">
+                <a asp-action="Index" asp-controller="OrderDetails" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </div>
+</form>

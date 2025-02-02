@@ -1,0 +1,72 @@
+﻿@* @model IEnumerable<BusinessObject.Object.Product> *@
+@model IEnumerable<BusinessObject.models.Dto.ProductDto.ProductDTO>
+
+
+<br />
+<div class="container p-4 border">
+	<div class="row pb-2">
+		<div class="col">
+			<h1 class="text-primary">Product List</h1>
+		</div>
+		<div class="col text-end pt-1">
+			<a asp-controller="Products" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New Product</a>
+		</div>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Category)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.ProductName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Weight)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.UnitPrice)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.UnitsInStock)
+				</th>
+				<th>
+					Image
+				</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@item.Category.CategoryName
+					</td>
+					<td>
+						@item.ProductName
+					</td>
+					<td>
+						@item.Weight
+					</td>
+					<td>
+						@item.UnitPrice.ToString("c")
+					</td>
+					<td>
+						@item.UnitsInStock
+					</td>
+					<td>
+						<img src="@item.ImageUrl" alt="Product Image" style="width: 100px; height: auto; max-width:200px; max-height:200px; object-fit: cover; border-radius: 5px;" />
+					</td>
+					
+					<td>
+						<a asp-controller="Products" asp-action="Edit" asp-route-ProductId="@item.ProductId" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+						<a asp-controller="Products" asp-action="Delete" asp-route-ProductId="@item.ProductId" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>

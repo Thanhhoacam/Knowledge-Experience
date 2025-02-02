@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BusinessObject.models.Dto.ProductDto.ProductDTO>
+﻿@using Microsoft.AspNetCore.Components
+
+<img class="d-block w-100" src="images/home/slide1.jpg" alt="">
+
+<hr />
+<form asp-action="Search" class="p-4 col-md-12 col-lg-6">
+    <div class="input-group">
+        <input class="form-control" name="search" type="text" placeholder="search...">
+        <span class="input-group-append">
+            <button type="submit" class=" btn btn-outline-secondary bg-white ms-n3" /><i class="bi bi-search"></i></button>
+        </span>
+    </div>
+</form>
+<div class="row" style="--bs-gutter-x:0">
+   
+    @foreach (var product in Model)
+    {
+        <div class="p-4 col-md-12 col-lg-6">
+            <div class="row" style="border-radius:20px; border: 1px solid #ffffff">
+                <div class="col-4">
+                    <img class="d-block w-100" style="border-radius:20px; max-height:250px" src="@product.ImageUrl" alt="First slide">
+                </div>
+                <div class="col-8">
+                    <p class="card-title text-warning" style="font-size:xx-large">@product.ProductName</p>
+                    <p class="card-text">
+                        @((MarkupString)product.Category.CategoryName)
+                    </p>
+                </div>
+                <div class="col-12">
+                    <div class="row pb-3 pt-2">
+                        @* <div class="col-4">
+                            <a href="" class="btn btn-success form-control btn-block">Buy now</a>
+                        </div> *@
+
+                        <a asp-controller="Payment" asp-action="Index" asp-route-ProductId="@product.ProductId" class="btn btn-success form-control btn-block">Buy now @product.ProductId</a>
+
+                        <div class="col-4">
+                            <span class="">Weight : @product.Weight kg </span><br />
+                            <span class=" pt-1">Stocks : @product.UnitsInStock </span><br />
+                        </div>
+                        <div class="col-4">
+                            <span class="text-warning float-end font-weight-bold pt-1" style="font-size:25px;">
+                                USD
+                                <span style="border-bottom:1px solid #ff6a00">
+                                    @product.UnitPrice.ToString("c")
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<BusinessObject.models.Dto.MemberDTO.MemberDTO>
+
+
+<br />
+<div class="container p-4 border">
+	<div class="row pb-2">
+		<div class="col">
+			<h1 class="text-primary">Member List</h1>
+		</div>
+		<div class="col text-end pt-1">
+			<a asp-controller="Members" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New Member</a>
+		</div>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@Html.DisplayNameFor(model => model.Email)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.CompanyName)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.City)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Country)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Password)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Role)
+				</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.CompanyName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.City)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Country)
+					</td>
+					<td>
+						<span class="password-text">********</span> <!-- Mật khẩu ẩn ban đầu -->
+						<i class="bi bi-eye-slash togglePassword"
+						   data-password="@item.Password"
+						   style="cursor: pointer; margin-left: 5px;"></i>
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Role)
+					</td>
+
+					<td>
+						<a asp-controller="Members" asp-action="Edit" asp-route-MemberId="@item.MemberId" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+						<a asp-controller="Members" asp-action="Delete" asp-route-MemberId="@item.MemberId" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>
+
+
+<script>
+	$(document).on("click", ".togglePassword", function () {
+		let passwordText = $(this).siblings(".password-text");
+		let actualPassword = $(this).attr("data-password");
+
+		if (passwordText.text() === "********") {
+			passwordText.text(actualPassword); // Hiện mật khẩu
+			$(this).removeClass("bi-eye-slash").addClass("bi-eye");
+		} else {
+			passwordText.text("********"); // Ẩn mật khẩu
+			$(this).removeClass("bi-eye").addClass("bi-eye-slash");
+		}
+	});
+</script>

@@ -1,0 +1,67 @@
+﻿@model BusinessObject.models.Dto.OrderDetailDTO.OrderDetailUpdateDTO
+
+
+
+<form asp-action="Edit">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Update Order Details</h1>
+        <hr />
+
+        <input type="hidden" asp-for="OrderId" />
+        <input type="hidden" asp-for="ProductId" />
+        <div class="row">
+            <div class="col-10">
+
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="col-2">
+                        <label asp-for="UnitPrice" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                        <input asp-for="UnitPrice" class="form-control" />
+
+
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Quantity" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <input asp-for="Quantity" class="form-control" />
+                        <span asp-validation-for="Quantity" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-2">
+                        <label asp-for="Discount" class="control-label pt-2" style="font-size:20px;"></label>
+                    </div>
+                    <div class="col-10 pb-3">
+                        <textarea asp-for="Discount" class="form-control" rows="5"></textarea>
+                        <span asp-validation-for="Discount" class="text-danger"></span>
+                    </div>
+
+                   
+
+                    <div class="col-5 offset-2">
+                        <a asp-action="Index" asp-controller="OrderDetails" class="btn-primary btn form-control ">Back to List</a>
+                    </div>
+                    <div class="col-5">
+                        <input type="submit" value="Update" class="btn btn-success form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

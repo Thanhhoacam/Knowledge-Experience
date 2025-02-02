@@ -1,0 +1,36 @@
+﻿@model BusinessObject.models.Dto.ProductDto.ProductDTO
+
+<form action="/create-payment-link" method="post">
+    <div class="container border p-4">
+        <div class="row text-center">
+            <h1>Login</h1>
+        </div>
+        <div class="row text-center">
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3 pb-2">
+                <input name="ProductName" value="@Model.ProductName" readonly type="text" class="form-control" placeholder="ProductName..." />
+            </div>
+
+            <div class="col-6 offset-3 pb-2">
+                <input name="UnitPrice" value="@Model.UnitPrice" readonly type="text" class="form-control" placeholder="UnitPrice..." />
+            </div>
+
+            <div class="col-6 offset-3 pb-2">
+                <input name="Quantity" type="number" class="form-control" placeholder="Quantity..." />
+            </div>
+
+            <div class="col-6 offset-3 pb-2">
+                <input name="DiscountCode" type="text" class="form-control" placeholder="Discount Code..." />
+            </div>
+
+            <div class="col-6 offset-3 pb-2">
+                <button type="submit" class="form-control btn-success" value="Submit">Create payment link</button>
+
+            </div>
+        </div>
+    </div>
+
+
+</form>
