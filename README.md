@@ -1,6 +1,9 @@
 # Project Title
 ## ApplicationDBContext
-```
+<details>
+  <summary>ApplicationDBContext</summary>
+
+  ```
 using BusinessObject.Object;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -41,6 +44,10 @@ namespace BusinessObject
 }
 
 ```
+
+  ```csharp
+  Console.WriteLine("Hello, world!");
+
 ## ConnectionStrings
 ```
 "ConnectionStrings": {
