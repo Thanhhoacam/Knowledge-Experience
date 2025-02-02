@@ -44,9 +44,8 @@ namespace BusinessObject
 }
 
 ```
-
-  ```csharp
-  Console.WriteLine("Hello, world!");
+</details>
+  
 
 ## ConnectionStrings
 ```
@@ -54,10 +53,13 @@ namespace BusinessObject
   "MyStoreDB": "Data Source=(local);Database=Ass01_API;User Id=sa1;Password=123;TrustServerCertificate=true;Trusted_Connection=SSPI;Encrypt=false;"
 },
 ```
+
+
 ## Program
 ### AddScoped để đăng kí service. Khi mà khởi tạo constructor thì ta có thể tiêm vào parameters của contructor
-
-```
+<details>
+  <summary>Program</summary>
+  ```
 using BusinessObject;
 using BusinessObject.models;
 using DataAccess.Dao;
@@ -182,6 +184,8 @@ app.MapControllers();
 app.Run();
 
 ```
+</details>
+
 
 ## Vì sao cần DTO
 vì dto sẽ tiết kiệm dữ liệu khi nó là class chỉ lấy ra những thuộc tính cần thiết
